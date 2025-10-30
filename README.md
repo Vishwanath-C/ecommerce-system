@@ -55,7 +55,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
 
-Step 3: Run the backend
+3: Run the backend
 ```./gradlew bootRun
 
 Step 4: Verify backend
