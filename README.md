@@ -36,4 +36,11 @@ It provides product browsing, shopping cart, checkout, and order management for 
 - Gradle (for backend build)
 - npm (for frontend dependencies)
 
+  ## Setup Instructions
+
+### Backend (Spring Boot / Gradle)
+1. Navigate to the backend folder:
+   ```bash
+   cd backend
+
 
