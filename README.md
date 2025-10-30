@@ -43,14 +43,17 @@ It provides product browsing, shopping cart, checkout, and order management for 
    ```bash
    cd backend
 
-2. Configure your database in src/main/resources/application.properties:
-   Edit src/main/resources/application.properties to match your MySQL setup:
-   
-   spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
+### Configure the Database
+
+Edit `src/main/resources/application.properties` and add the following:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
 spring.datasource.username=root
 spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+
 
 Step 3: Run the backend
 ./gradlew bootRun
@@ -81,6 +84,31 @@ npm run build
 - The compiled files will be in the dist/ folder.
 - You can serve them via Spring Boot by copying them to:
     backend/src/main/resources/static/
+
+  Database Setup
+
+1. Make sure MySQL is installed and running.
+
+2. Create a new database (example: ecommerce_db):
+CREATE DATABASE ecommerce_db;
+
+3. Update your application.properties with your username and password.
+
+4. Tables will be created automatically on first run due to:
+   spring.jpa.hibernate.ddl-auto=update
+
+Running the App
+
+1. Start MySQL.
+
+2. Run the backend:
+./gradlew bootRun
+
+3. Run the frontend (development):
+npm run dev
+
+4. Open your browser at:
+   http://localhost:5173
 
 
 
