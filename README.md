@@ -59,22 +59,24 @@ It provides product browsing, shopping cart, checkout, and order management for 
   ./gradlew bootRun
 
 4. Verify backend
-  ```Open a browser or Postman and check:
+  Open a browser or Postman and check:
+  ```ardiuno
     http://localhost:8080
+
 
 2. Frontend (React / Vite)
 
 Step 1: Navigate to the frontend folder
   ```bash
-  cd frontend
+     cd frontend
 
 Step 2: Install dependencies
   ```bash
-  npm install
+     npm install
 
 Step 3: Start the development server
   ```bash
-  npm run dev
+     npm run dev
 
 Step 4: Verify frontend
 ```Open a browser and visit:
