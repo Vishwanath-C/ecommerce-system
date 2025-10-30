@@ -72,17 +72,17 @@ It provides product browsing, shopping cart, checkout, and order management for 
 
 Step 1: Navigate to the frontend folder
     ```bash
-       cd frontend
+    cd frontend
     ```
 
 Step 2: Install dependencies
     ```bash
-       npm install
+    npm install
     ```
 
 Step 3: Start the development server
     ```bash
-       npm run dev
+    npm run dev
     ```
 
 Step 4: Verify frontend
@@ -92,8 +92,8 @@ Open a browser and visit:
   ```
 
 Step 5 (Optional): Build for production
-  ```
-    npm run build
+  ```bash
+  npm run build
   ```
 
 - The compiled files will be in the dist/ folder.
