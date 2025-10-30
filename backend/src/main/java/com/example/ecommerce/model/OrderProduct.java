@@ -26,18 +26,12 @@ public class OrderProduct
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_id", nullable = false)
-    private Product product;
-
-    @Column(nullable = false)
-    private int quantity;
-
-    @Column(nullable = false, precision = 10, scale = 2)
+    private Long productId;
+    private String productName;
+    private String productImageUrl;
     private BigDecimal unitPrice;
-
-    @Column(nullable = false, precision = 10, scale = 2)
     private BigDecimal lineTotal;
+    private int quantity;
 
     @PrePersist
     @PreUpdate

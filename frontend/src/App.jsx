@@ -15,6 +15,8 @@ import {getCurrentUser} from "./utils/auth.js";
 import UserOrdersPage from "./components/UserOrdersPage.jsx";
 import UpdateProductForm from "./components/UpdateProductForm.jsx";
 import UpdateCategory from "./components/UpdateCategoryForm.jsx";
+import UpdateCategoryForm from "./components/UpdateCategoryForm.jsx";
+import UserOrdersForAdmin from "./components/UserOrdersForAdmin.jsx";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -309,8 +311,9 @@ function App() {
                             fetchProducts={fetchProducts}
                         />}/>
                         <Route path={"user-orders"} element={<UserOrdersPage/>}/>
+                        <Route path={"user-orders-admin"} element={<UserOrdersForAdmin/>}/>
                         <Route path={"add-category"} element={<AddCategory/>}/>
-                        <Route path={"update-category"} element={<UpdateCategory/>}/>
+                        <Route path={"update-category"} element={<UpdateCategoryForm/>}/>
                         <Route path={"add-product"} element={<AddProduct/>}/>
                         <Route path={"update-product"} element={<UpdateProductForm/>}/>
                         <Route path={"products-in-category"}

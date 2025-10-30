@@ -32,8 +32,8 @@ const UpdateCategoryForm = () => {
     }, []);
 
     return (
-        <Box sx={{maxWidth: 600, mt: 4, mx: "auto", p: 2}}>
-            <Typography variant="h5" fontWeight={"bold"}>Catergory</Typography>
+        <Box sx={{ maxWidth: 600, mx: "auto", mt: 4, p: 2 }}>
+            <Typography variant="h5" gutterBottom fontWeight={"bold"}>Catergory</Typography>
 
             <FormControl fullWidth={true} sx={{mb: 2}}>
                 <InputLabel>Category</InputLabel>
@@ -48,6 +48,8 @@ const UpdateCategoryForm = () => {
                         </MenuItem>
                     ))}
                 </Select>
+
+                {/*{selectedCategory !== "" && ()}*/}
             </FormControl>
         </Box>
     );

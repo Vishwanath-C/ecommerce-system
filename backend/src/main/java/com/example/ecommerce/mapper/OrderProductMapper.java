@@ -11,8 +11,8 @@ public class OrderProductMapper
     public OrderProductResponseDto toDto(OrderProduct orderProduct){
         return OrderProductResponseDto.builder()
                 .id(orderProduct.getId())
-                .productId(orderProduct.getProduct().getId())
-                .productName(orderProduct.getProduct().getName())
+                .productId(orderProduct.getProductId())
+                .productName(orderProduct.getProductName())
                 .quantity(orderProduct.getQuantity())
                 .unitPrice(orderProduct.getUnitPrice())
                 .lineTotal(orderProduct.getLineTotal())

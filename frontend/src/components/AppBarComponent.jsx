@@ -163,9 +163,9 @@ const AppBarComponent = ({
                         ECommerce System
                     </Typography>
 
-                    <Box sx={{mx: 2}}>
+                    {location.pathname !== ('/login' && '/register') && <Box sx={{mx: 2}}>
                         <SearchBar products={products} setFilteredProducts={setFilteredProducts}/>
-                    </Box>
+                    </Box>}
 
                     {/* Cart icon */}
                     {location.pathname !== "/login" && (

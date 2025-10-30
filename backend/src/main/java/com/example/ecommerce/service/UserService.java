@@ -1,6 +1,8 @@
 package com.example.ecommerce.service;
 
+import com.example.ecommerce.dto.response.UserResponseDto;
 import com.example.ecommerce.exception.ResourceNotFoundException;
+import com.example.ecommerce.mapper.UserMapper;
 import com.example.ecommerce.model.User;
 import com.example.ecommerce.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import java.util.List;
 public class UserService implements UserDetailsService
 {
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
     @Override
     public  UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
@@ -32,6 +35,18 @@ public class UserService implements UserDetailsService
         return userRepository.findByEmail(email)
                 .orElseThrow(() -> new ResourceNotFoundException("User with email " + email + " not found!"));
    }
+
+    public UserResponseDto getUserDtoById(Long id){
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("User with id " + id + " not found!"));
+        return userMapper.toDto(user);
+    }
+
+    public UserResponseDto getUserDtoByEmail(String email){
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new ResourceNotFoundException("User with email " + email + " not found!"));
+        return userMapper.toDto(user);
+    }
 
    public List<User> getAllUsers(){
         return userRepository.findAll();

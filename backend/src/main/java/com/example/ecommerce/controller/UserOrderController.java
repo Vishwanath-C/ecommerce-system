@@ -16,7 +16,8 @@ public class UserOrderController
     private final OrderService orderService;
 
     @GetMapping
-    public ResponseEntity<List<OrderResponseDto>> getOrdersByUserId(@PathVariable Long userId){
+    public ResponseEntity<List<OrderResponseDto>> getOrdersByUserId(@PathVariable(name = "userId") Long userId){
+        System.out.println("Inside order user");
         return ResponseEntity.ok().body(orderService.getOrdersByUserId(userId));
     }
 

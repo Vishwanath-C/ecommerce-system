@@ -16,8 +16,8 @@ public class OrderMapper
                 .map(
                         orderProduct -> OrderProductResponseDto.builder()
                                 .productId(orderProduct.getOrder().getId())
-                                .productName(orderProduct.getProduct().getName())
-                                .unitPrice(orderProduct.getProduct().getUnitPrice())
+                                .productName(orderProduct.getProductName())
+                                .unitPrice(orderProduct.getUnitPrice())
                                 .quantity(orderProduct.getQuantity())
                                 .build()
                 ).toList();

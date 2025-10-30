@@ -1,5 +1,6 @@
 package com.example.ecommerce.controller;
 
+import com.example.ecommerce.dto.response.UserResponseDto;
 import com.example.ecommerce.model.User;
 import com.example.ecommerce.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +27,8 @@ public class UserController
     }
 
     @GetMapping("/{userId}")
-    @PreAuthorize(("hasRole('ADMIN)"))
-    public ResponseEntity<User> getUserById(@PathVariable Long userId){
-        return ResponseEntity.ok().body(userService.getUserById(userId));
+    @PreAuthorize(("hasRole('ADMIN')"))
+    public ResponseEntity<UserResponseDto> getUserById(@PathVariable("userId") Long userId){
+        return ResponseEntity.ok().body(userService.getUserDtoById(userId));
     }
 }

@@ -82,9 +82,11 @@ public class OrderService {
 
         OrderProduct orderProduct = OrderProduct.builder()
                 .order(order)
-                .product(product)
-                .quantity(1)
+                .productId(product.getId())
+                .productName(product.getName())
+                .productImageUrl(product.getImageUrl())
                 .unitPrice(product.getUnitPrice())
+                .quantity(1)
                 .build();
 
         orderProductRepository.save(orderProduct);
@@ -136,9 +138,11 @@ public class OrderService {
 
             OrderProduct orderProduct = OrderProduct.builder()
                     .order(order)
-                    .product(product)
+                    .productId(product.getId())
+                    .productName(product.getName())
+                    .productImageUrl(product.getImageUrl())
+                    .unitPrice(product.getUnitPrice())
                     .quantity(cartProduct.getQuantity())
-                    .unitPrice(cartProduct.getProduct().getUnitPrice())
                     .build();
 
             orderProductRepository.save(orderProduct);

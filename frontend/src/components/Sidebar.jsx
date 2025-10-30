@@ -91,14 +91,7 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
                 setActivePage("profile");
             },
         },
-        {
-            label: "Orders",
-            icon: <ReceiptLong/>,
-            action: () => {
-                setActiveItem("Orders");
-                navigate("/app/user-orders");
-            },
-        },
+
         {
             label: "Category",
             icon: <Category/>,
@@ -121,8 +114,27 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
         },
     ];
 
+    const userItems = [
+        {
+            label: "Orders",
+            icon: <ReceiptLong/>,
+            action: () => {
+                setActiveItem("Orders");
+                navigate("/app/user-orders");
+            },
+        },
+    ]
+
     // 🔹 Admin only
     const adminItems = [
+        {
+            label: "Orders Admin",
+            icon: <ReceiptLong/>,
+            action: () => {
+                setActiveItem("Orders");
+                navigate("/app/user-orders-admin");
+            },
+        },
         {
             label: "Category Actions",
             icon: <Category/>,
@@ -135,13 +147,13 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
                         navigate("/app/add-category");
                     },
                 },
-                {
-                    label: "Update Category",
-                    action: () => {
-                        setActiveItem("Update Category");
-                        navigate("/app/update-category");
-                    },
-                },
+                // {
+                //     label: "Update Category",
+                //     action: () => {
+                //         setActiveItem("Update Category");
+                //         navigate("/app/update-category");
+                //     },
+                // },
             ]
         },
         {
@@ -169,7 +181,7 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
 
     const menuMap = {
         ADMIN: [...commonItems, ...adminItems],
-        CUSTOMER: commonItems,
+        CUSTOMER: [...commonItems, ...userItems],
     };
 
     const openMenuMap = {
@@ -187,7 +199,7 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
                 position: "fixed",
                 top: "70px",
                 left: 0,
-                bottom:"70px",
+                bottom: "70px",
                 width: 200,
                 height: "calc(100vh - 70px)",
                 bgcolor: "#f5f5f5",
@@ -240,28 +252,40 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
                                     </ListItemButton>
                                     <Collapse in={isOpen} timeout="auto" unmountOnExit>
                                         <List component="div" disablePadding>
-                                            {item.children.map((child) => (
-                                                <ListItemButton
-                                                    key={child.label}
-                                                    sx={{
-                                                        pl: 8,
-                                                        bgcolor: activeItem === child.label ? "primary.main" : "transparent",
-                                                        color: activeItem === child.label ? "white" : "text.primary",
-                                                        "&:hover": {bgcolor: activeItem === child.label ? "primary.dark" : "rgba(0,0,0,0.05)"}
-                                                    }}
-                                                    onClick={child.action}
-                                                >
-                                                    <ListItemText
-                                                        primary={child.label}
-                                                        slotProps={{
-                                                            primary: {sx: {fontSize: "0.85rem", fontWeight: 500}},
-                                                        }}
-                                                    />
+                                            {item.children.map((child) => {
+                                                const isActive = activeItem === child.label;
 
-                                                </ListItemButton>
-                                            ))}
+                                                return (
+                                                    <ListItemButton
+                                                        key={child.label}
+                                                        sx={{
+                                                            pl: 8,
+                                                            borderRadius: 1,
+                                                            mb: 0.3,
+                                                            bgcolor: isActive
+                                                                ? "primary.light"         // selected item
+                                                                : "grey.100",             // default light shade
+                                                            color: isActive ? "primary.contrastText" : "text.primary",
+                                                            "&:hover": {
+                                                                bgcolor: isActive ? "primary.main" : "grey.200", // slightly darker on hover
+                                                            },
+                                                            transition: "0.2s ease",
+                                                        }}
+                                                        onClick={child.action}
+                                                    >
+                                                        <ListItemText
+                                                            primary={child.label}
+                                                            slotProps={{
+                                                                primary: {sx: {fontSize: "0.85rem", fontWeight: 500}},
+                                                            }}
+                                                        />
+                                                    </ListItemButton>
+                                                );
+                                            })}
                                         </List>
                                     </Collapse>
+
+
                                 </Box>
                             );
                         }
