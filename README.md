@@ -1,2 +1,4 @@
 # ecommerce-system
-Full-stack eCommerce system built with Spring Boot, React, and MySQL.
+🛒 E-Commerce App
+
+A full-stack e-commerce application built with Spring Boot, MySQL, and React.
