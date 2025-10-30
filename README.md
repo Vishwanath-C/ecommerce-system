@@ -58,20 +58,23 @@ It provides product browsing, shopping cart, checkout, and order management for 
   ```bash
   ./gradlew bootRun
 
-4: Verify backend
+4. Verify backend
   ```Open a browser or Postman and check:
     http://localhost:8080
 
 2. Frontend (React / Vite)
 
 Step 1: Navigate to the frontend folder
-cd frontend
+  ```bash
+  cd frontend
 
 Step 2: Install dependencies
-npm install
+  ```bash
+  npm install
 
 Step 3: Start the development server
-```npm run dev
+  ```bash
+  npm run dev
 
 Step 4: Verify frontend
 ```Open a browser and visit:
