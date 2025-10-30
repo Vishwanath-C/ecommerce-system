@@ -29,8 +29,7 @@ It provides product browsing, shopping cart, checkout, and order management for 
 - Gradle
 - Vite
 
-  ### Prerequisites
-
+### Prerequisites
 - Java 17+
 - Node.js (for frontend development and build)
 - MySQL Server
