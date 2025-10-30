@@ -68,7 +68,7 @@ It provides product browsing, shopping cart, checkout, and order management for 
     ```
 
 
-2. Frontend (React / Vite)
+### Frontend (React / Vite)
 
 Step 1: Navigate to the frontend folder
     ```bash
@@ -100,7 +100,7 @@ Step 5 (Optional): Build for production
 - You can serve them via Spring Boot by copying them to:
     backend/src/main/resources/static/
 
-  Database Setup
+### Database Setup
 
 1. Make sure MySQL is installed and running.
 
