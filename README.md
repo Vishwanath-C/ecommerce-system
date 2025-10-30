@@ -71,19 +71,19 @@ It provides product browsing, shopping cart, checkout, and order management for 
 ### Frontend (React / Vite)
 
 Step 1: Navigate to the frontend folder
-    ```bash
-    cd frontend
-    ```
+  ```bash
+  cd frontend
+  ```
 
 Step 2: Install dependencies
-    ```bash
-    npm install
-    ```
+  ```bash
+  npm install
+  ```
 
 Step 3: Start the development server
-    ```bash
-    npm run dev
-    ```
+  ```bash
+  npm run dev
+  ```
 
 Step 4: Verify frontend
 Open a browser and visit:
