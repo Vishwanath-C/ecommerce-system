@@ -43,4 +43,44 @@ It provides product browsing, shopping cart, checkout, and order management for 
    ```bash
    cd backend
 
+2. Configure your database in src/main/resources/application.properties:
+   Edit src/main/resources/application.properties to match your MySQL setup:
+   
+   spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
+spring.datasource.username=root
+spring.datasource.password=yourpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+
+Step 3: Run the backend
+./gradlew bootRun
+
+Step 4: Verify backend
+Open a browser or Postman and check:
+
+http://localhost:8080
+
+2. Frontend (React / Vite)
+
+Step 1: Navigate to the frontend folder
+cd frontend
+
+Step 2: Install dependencies
+npm install
+
+Step 3: Start the development server
+npm run dev
+
+Step 4: Verify frontend
+Open a browser and visit:
+http://localhost:5173
+
+Step 5 (Optional): Build for production
+npm run build
+
+- The compiled files will be in the dist/ folder.
+- You can serve them via Spring Boot by copying them to:
+    backend/src/main/resources/static/
+
+
 
