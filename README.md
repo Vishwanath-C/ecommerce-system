@@ -133,5 +133,17 @@ npm run dev
 http://localhost:5173
 ```
 
+### Screenshots
+
+#### Home Page
+![Home Page](screenshots/home.png)
+
+#### Product Page
+![Product Page](screenshots/product.png)
+
+#### Admin Dashboard
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+
 
 
