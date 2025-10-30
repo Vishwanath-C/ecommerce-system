@@ -54,12 +54,11 @@ spring.datasource.password=yourpassword
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 
-
-3: Run the backend
+3. Run the backend
 ```bash
 ./gradlew bootRun
 
-Step 4: Verify backend
+4: Verify backend
 ```Open a browser or Postman and check:
 
 http://localhost:8080
