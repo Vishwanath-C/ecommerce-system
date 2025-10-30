@@ -86,7 +86,7 @@ Step 3: Start the development server
   ```
 
 Step 4: Verify frontend
-Open a browser and visit:
+  Open a browser and visit:
   ```
     http://localhost:5173
   ```
@@ -105,9 +105,9 @@ Step 5 (Optional): Build for production
 1. Make sure MySQL is installed and running.
 
 2. Create a new database (example: ecommerce_db):
-```
-CREATE DATABASE ecommerce_db;
-```
+    ```
+    CREATE DATABASE ecommerce_db;
+    ```
 
 3. Update your application.properties with your username and password.
 
@@ -119,27 +119,45 @@ CREATE DATABASE ecommerce_db;
 1. Start MySQL.
 
 2. Run the backend:
-```
-./gradlew bootRun
-```
+    ```
+    ./gradlew bootRun
+    ```
 
 3. Run the frontend (development):
-```
-npm run dev
-```
+    ```
+    npm run dev
+    ```
 
 4. Open your browser at:
-```
-http://localhost:5173
-```
+    ```
+    http://localhost:5173
+    ```
 
 ### Screenshots
 
 #### Home Page
 ![Home Page](screenshots/home.png)
 
+#### Login Page
+![Login Page](screenshots/login.png)
+
+#### Register Page
+![Register Page](screenshots/register.png)
+
 #### Product Page
-![Product Page](screenshots/product.png)
+![Home Page after login](screenshots/home-after-login.png)
+
+#### Product Details Page
+![Product details when clicked](screenshots/product-details.png)
+
+#### Add Category Admin Page
+![Add Category - Only Admin](screenshots/add-category-admin.png)
+
+#### Add Product Admin Page
+![Add Product - Only Admin](screenshots/add-product-admin.png)
+
+#### Update Product Admin Page
+![Update Product - Only Admin](screenshots/update-product-admin.png)
 
 #### Admin Dashboard
 ![Admin Dashboard](screenshots/admin-dashboard.png)

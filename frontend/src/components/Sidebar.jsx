@@ -128,7 +128,7 @@ const Sidebar = ({isMenuOpen, setActivePage, fetchProducts, fetchProductsByCateg
     // 🔹 Admin only
     const adminItems = [
         {
-            label: "Orders Admin",
+            label: "Orders",
             icon: <ReceiptLong/>,
             action: () => {
                 setActiveItem("Orders");

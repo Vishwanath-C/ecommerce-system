@@ -24,15 +24,11 @@ import OrderSummary from "./OrderSummary.jsx";
 import { getCurrentUser } from "../utils/auth.js";
 
 // ---------- CHILD COMPONENT ----------
-const UserOrders = ({ orders, userId }) => {
-    useEffect(() => {
-        console.log("Orders:", orders);
-    }, [orders]);
-
+const UserOrders = ({ orders, userIdLabel }) => {
     return (
         <Box sx={{ maxWidth: 800, mx: "auto", mt: 4, mb: 4 }}>
             <Typography variant="h4" fontWeight="bold" align="center" gutterBottom>
-                Orders of User #{userId}
+                {userIdLabel ? `Orders of User #${userIdLabel}` : "All Orders"}
             </Typography>
 
             <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
@@ -48,7 +44,7 @@ const UserOrders = ({ orders, userId }) => {
                                     Order #{order.orderId}
                                 </Typography>
                                 <Typography sx={{ flex: 1, textAlign: "center" }}>
-                                    {new Date(order.orderDate).toLocaleDateString()}
+                                    {new Date(order.orderDate).toLocaleDateString("en-IN")}
                                 </Typography>
                                 <Typography fontWeight="bold" sx={{ flex: 1, textAlign: "right" }}>
                                     ₹{order.totalPrice}
@@ -70,46 +66,39 @@ const UserOrdersForAdmin = () => {
     const [userId, setUserId] = useState("");
     const [user, setUser] = useState(null);
     const [orders, setOrders] = useState([]);
-    const [noUser, setNoUser] = useState(false);
     const [loading, setLoading] = useState(false);
-    const [fetched, setFetched] = useState(false);
     const [error, setError] = useState(null);
+    const [noUser, setNoUser] = useState(false);
+    const [fetched, setFetched] = useState(false);
 
     const token = localStorage.getItem("token");
 
     useEffect(() => console.log("Current Admin:", getCurrentUser()), []);
 
-    const fetchUserAndOrders = async () => {
+    // Fetch orders for a specific user
+    const fetchUserOrders = async () => {
         if (!userId.trim()) return;
 
         setLoading(true);
         setFetched(false);
-        setNoUser(false);
         setError(null);
+        setNoUser(false);
         setUser(null);
         setOrders([]);
 
         try {
-            // Fetch user first
             const userResponse = await apiClient.get(`/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setUser(userResponse.data);
 
-            // Then fetch user’s orders
             const orderResponse = await apiClient.get(`/users/${userId}/orders`, {
                 headers: { Authorization: `Bearer ${token}` },
             });
-
-            if (Array.isArray(orderResponse.data) && orderResponse.data.length > 0) {
-                setOrders(orderResponse.data);
-            } else {
-                setOrders([]);
-            }
-
+            setOrders(Array.isArray(orderResponse.data) ? orderResponse.data : []);
             setNoUser(false);
         } catch (err) {
-            console.error("Error fetching data:", err);
+            console.error("Error fetching user orders:", err);
             if (err.response && err.response.status === 404) {
                 setNoUser(true);
             } else {
@@ -121,53 +110,76 @@ const UserOrdersForAdmin = () => {
         }
     };
 
+    // Fetch all orders
+    const fetchAllOrders = async () => {
+        setLoading(true);
+        setFetched(false);
+        setError(null);
+        setNoUser(false);
+        setUser(null);
+        setOrders([]);
+
+        try {
+            const response = await apiClient.get("/orders", {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+            setOrders(Array.isArray(response.data) ? response.data : []);
+        } catch (err) {
+            console.error("Error fetching all orders:", err);
+            setError("Failed to fetch all orders. Please try again.");
+        } finally {
+            setLoading(false);
+            setFetched(true);
+        }
+    };
+
     return (
         <Box sx={{ maxWidth: 920, mx: "auto", mt: 6, px: 2 }}>
             <Paper elevation={3} sx={{ p: 3, borderRadius: 2 }}>
+                <Typography variant="h5" fontWeight={600} gutterBottom>
+                    Admin Order Search
+                </Typography>
+
                 <Grid container spacing={2} alignItems="center">
-                    <Grid item xs={12} sm={6}>
-                        <Typography variant="h5" fontWeight={600}>
-                            Find User Orders
-                        </Typography>
+                    <Grid item xs={12} sm={7}>
+                        <TextField
+                            label="User ID"
+                            placeholder="Enter user ID"
+                            value={userId}
+                            onChange={(e) => setUserId(e.target.value)}
+                            fullWidth
+                            size="small"
+                            variant="outlined"
+                        />
                     </Grid>
 
-                    <Grid item xs={12} sm={6}>
-                        <Box
-                            component="form"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                fetchUserAndOrders();
-                            }}
-                        >
-                            <Grid container spacing={1} alignItems="center">
-                                <Grid item xs={8} sm={7}>
-                                    <TextField
-                                        label="User ID"
-                                        placeholder="Enter user ID"
-                                        value={userId}
-                                        onChange={(e) => setUserId(e.target.value)}
-                                        fullWidth
-                                        size="small"
-                                        variant="outlined"
-                                        required
-                                    />
-                                </Grid>
-
-                                <Grid item xs={4} sm={5}>
-                                    <Button
-                                        type="submit"
-                                        variant="contained"
-                                        color="primary"
-                                        fullWidth
-                                        disabled={loading}
-                                        sx={{ height: "40px" }}
-                                        startIcon={loading ? <CircularProgress size={18} /> : null}
-                                    >
-                                        {loading ? "Searching..." : "Find Orders"}
-                                    </Button>
-                                </Grid>
+                    <Grid item xs={12} sm={5}>
+                        <Grid container spacing={1}>
+                            <Grid item xs={6}>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    fullWidth
+                                    onClick={fetchUserOrders}
+                                    disabled={loading || !userId.trim()}
+                                    startIcon={loading ? <CircularProgress size={18} /> : null}
+                                >
+                                    {loading ? "Loading..." : "Find Orders"}
+                                </Button>
                             </Grid>
-                        </Box>
+                            <Grid item xs={6}>
+                                <Button
+                                    variant="outlined"
+                                    color="secondary"
+                                    fullWidth
+                                    onClick={fetchAllOrders}
+                                    disabled={loading}
+                                    startIcon={loading ? <CircularProgress size={18} /> : null}
+                                >
+                                    {loading ? "Loading..." : "All Orders"}
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Grid>
 
                     <Grid item xs={12}>
@@ -195,7 +207,7 @@ const UserOrdersForAdmin = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                <TableRow hover>
+                                <TableRow hover key={user.id}>
                                     <TableCell>{user.id}</TableCell>
                                     <TableCell>{user.firstName}</TableCell>
                                     <TableCell>{user.lastName}</TableCell>
@@ -209,12 +221,12 @@ const UserOrdersForAdmin = () => {
 
             {/* Orders section */}
             <Box sx={{ mt: 3 }}>
-                {fetched && !noUser && !error && orders.length > 0 && (
-                    <UserOrders orders={orders} userId={userId} />
+                {fetched && orders.length > 0 && (
+                    <UserOrders orders={orders} userIdLabel={user ? userId : null} />
                 )}
-                {fetched && !noUser && orders.length === 0 && (
+                {fetched && orders.length === 0 && !error && (
                     <Alert severity="info" sx={{ mt: 2 }}>
-                        This user has no orders yet.
+                        {user ? "This user has no orders yet." : "No orders found."}
                     </Alert>
                 )}
             </Box>
