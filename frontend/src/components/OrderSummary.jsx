@@ -41,7 +41,7 @@ const OrderSummary = ({order}) => {
                             <Table size="small">
                                 <TableHead>
                                     <TableRow >
-                                        <TableCell sx={{fontWeight: "bold"}}>Product</TableCell>
+                                        <TableCell sx={{fontWeight: "bold"}} align="left">Product</TableCell>
                                         <TableCell sx={{fontWeight: "bold"}} align="center">Unit Price</TableCell>
                                         <TableCell sx={{fontWeight: "bold"}} align="center">Quantity</TableCell>
                                         <TableCell sx={{fontWeight: "bold"}} align="right">Line Total</TableCell>
@@ -58,10 +58,10 @@ const OrderSummary = ({order}) => {
                                     ))}
 
                                     <TableRow>
-                                        <TableCell colSpan={3} align="right" fontWeight="bold">
+                                        <TableCell colSpan={3} align="right" sx={{fontWeight:"bold"}}>
                                             Total:
                                         </TableCell>
-                                        <TableCell align="right" fontWeight="bold">
+                                        <TableCell align="right" sx={{fontWeight:"bold"}}>
                                             ₹{order.totalPrice}
                                         </TableCell>
                                     </TableRow>

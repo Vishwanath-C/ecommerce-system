@@ -135,7 +135,7 @@ Step 5 (Optional): Build for production
 
 ### Screenshots
 
-#### Home Page
+#### Home Page - Before login
 ![Home Page](screenshots/home.png)
 
 #### Login Page
@@ -144,7 +144,7 @@ Step 5 (Optional): Build for production
 #### Register Page
 ![Register Page](screenshots/register.png)
 
-#### Product Page
+#### Home Page - After login
 ![Home Page after login](screenshots/home-after-login.png)
 
 #### Product Details Page
@@ -159,8 +159,11 @@ Step 5 (Optional): Build for production
 #### Update Product Admin Page
 ![Update Product - Only Admin](screenshots/update-product-admin.png)
 
-#### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
+#### User Cart
+![User Cart](screenshots/user-cart.png)
+
+#### User Orders Page
+![User Orders Page](screenshots/user-orders-page.png)
 
 
 
