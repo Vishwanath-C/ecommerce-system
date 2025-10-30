@@ -69,6 +69,7 @@ It provides product browsing, shopping cart, checkout, and order management for 
 Step 1: Navigate to the frontend folder
   ```bash
      cd frontend
+  ```
 
 Step 2: Install dependencies
   ```bash
