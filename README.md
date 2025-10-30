@@ -45,23 +45,22 @@ It provides product browsing, shopping cart, checkout, and order management for 
 
 2. Configure the Database
 
-Edit `src/main/resources/application.properties` and add the following:
+    Edit `src/main/resources/application.properties` and add the following:
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
-spring.datasource.username=root
-spring.datasource.password=yourpassword
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
+    ```properties
+    spring.datasource.url=jdbc:mysql://localhost:3306/ecommerce_db
+    spring.datasource.username=root
+    spring.datasource.password=yourpassword
+    spring.jpa.hibernate.ddl-auto=update
+    spring.jpa.show-sql=true
 
 3. Run the backend
-```bash
-./gradlew bootRun
+  ```bash
+  ./gradlew bootRun
 
 4: Verify backend
-```Open a browser or Postman and check:
-
-http://localhost:8080
+  ```Open a browser or Postman and check:
+    http://localhost:8080
 
 2. Frontend (React / Vite)
 
