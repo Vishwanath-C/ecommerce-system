@@ -18,6 +18,12 @@ A full-stack e-commerce application built with Spring Boot, MySQL, and React.
 - MySQL
 - Spring Security
 - JPA/Hibernate
+  
+### Frontend: 
+- React,
+- Material UI (MUI),
+- Axios
 - 
-### Frontend: React, Material UI (MUI), Axios
-### Build Tools: Gradle, Vite
+### Build Tools: 
+- Gradle,
+- Vite
