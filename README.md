@@ -3,7 +3,7 @@
 
 A full-stack e-commerce application built with Spring Boot, MySQL, and React.
 
-Features
+##Features
 
 User authentication using JWT
 
@@ -15,7 +15,7 @@ Order tracking for users
 
 Admin dashboard for managing products, categories, and orders
 
-Tech Stack
+##Tech Stack
 
 Backend: Spring Boot, MySQL, Spring Security, JPA/Hibernate
 Frontend: React, Material UI (MUI), Axios
