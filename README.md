@@ -56,7 +56,8 @@ spring.jpa.show-sql=true
 
 
 3: Run the backend
-```./gradlew bootRun
+```bash
+./gradlew bootRun
 
 Step 4: Verify backend
 ```Open a browser or Postman and check:
