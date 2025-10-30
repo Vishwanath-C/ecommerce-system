@@ -42,6 +42,7 @@ It provides product browsing, shopping cart, checkout, and order management for 
 1. Navigate to the backend folder:
    ```bash
    cd backend
+   ```
 
 2. Configure the Database
 
@@ -53,15 +54,18 @@ It provides product browsing, shopping cart, checkout, and order management for 
     spring.datasource.password=yourpassword
     spring.jpa.hibernate.ddl-auto=update
     spring.jpa.show-sql=true
+    ```
 
 3. Run the backend
   ```bash
   ./gradlew bootRun
+```
 
 4. Verify backend
   Open a browser or Postman and check:
   ```ardiuno
     http://localhost:8080
+```
 
 
 2. Frontend (React / Vite)
@@ -74,17 +78,23 @@ Step 1: Navigate to the frontend folder
 Step 2: Install dependencies
   ```bash
      npm install
+```
 
 Step 3: Start the development server
   ```bash
      npm run dev
+```
 
 Step 4: Verify frontend
-```Open a browser and visit:
+Open a browser and visit:
+```
 http://localhost:5173
+```
 
 Step 5 (Optional): Build for production
-```npm run build```
+```
+npm run build
+```
 
 - The compiled files will be in the dist/ folder.
 - You can serve them via Spring Boot by copying them to:
