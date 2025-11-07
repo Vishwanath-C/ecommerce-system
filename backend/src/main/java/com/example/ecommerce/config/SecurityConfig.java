@@ -75,8 +75,6 @@ public class SecurityConfig
         byte[] keyBytes = Base64.getDecoder().decode(jwtSecret);
         SecretKey key = new SecretKeySpec(keyBytes, "HmacSHA256");
         return NimbusJwtDecoder.withSecretKey(key).build();
-//        SecretKey key = new SecretKeySpec(jwtSecret.getBytes(), "HmacSHA256");
-//        return NimbusJwtDecoder.withSecretKey(key).build();
     }
 
 

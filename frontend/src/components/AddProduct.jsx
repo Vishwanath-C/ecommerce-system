@@ -6,6 +6,7 @@ import api from "../api.js";
 const AddProduct = () => {
     const [productName, setProductName] = useState("");
     const [productDescription, setProductDescription] = useState("");
+    const [productImageUrl, setProductImageUrl] = useState("");
     const [price, setPrice] = useState("");
     const [category, setCategory] = useState("");
     const [stockQuantity, setStockQuantity] = useState("");
@@ -32,9 +33,10 @@ const AddProduct = () => {
             const response = await api.post("/products", {
                     name: productName,
                     description: productDescription,
+                    imageUrl: productImageUrl,
                     price: price,
                     categoryId: category,
-                    stockQuantity:stockQuantity
+                    stockQuantity: stockQuantity
                 },
                 {
                     headers: {
@@ -132,6 +134,16 @@ const AddProduct = () => {
                         required
                     />
                     <TextField
+                        label="Image URL"
+                        fullWidth
+                        multiline={true}
+                        rows={4}
+                        value={productImageUrl}
+                        onChange={(e) => setProductDescription(e.target.value)}
+                        margin={"normal"}
+                        required
+                    />
+                    <TextField
                         label={"Price"}
                         type={"number"}
                         fullWidth
@@ -150,7 +162,7 @@ const AddProduct = () => {
                         value={stockQuantity}
                         onChange={(e) => setStockQuantity(e.target.value)}
                         margin={"normal"}
-                        slotProps={{input: {min:1}}}
+                        slotProps={{input: {min: 1}}}
                     />
 
                     <Button

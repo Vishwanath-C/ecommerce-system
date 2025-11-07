@@ -21,6 +21,8 @@ public class ProductRequestDto
     @NotBlank(message = "Description is required")
     private String description;
 
+    private String imageUrl;
+
     @NotNull(message = "Price is required")
     @Positive(message = "Price must be positive")
     private BigDecimal price;

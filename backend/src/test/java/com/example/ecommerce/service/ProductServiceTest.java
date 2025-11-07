@@ -53,6 +53,7 @@ class ProductServiceTest {
         requestDto = new ProductRequestDto(
                 "iPhone 17",
                 "Apple phone",
+                "https://istyle.cz/cdn/shop/files/iphone_pro_oranzovy_1_d13d0b99-ca05-4ab5-9b06-c399fe6315da.jpg?v=1757506545",
                 BigDecimal.valueOf(89999),
                 1L,
                 10
@@ -179,6 +180,7 @@ class ProductServiceTest {
         ProductRequestDto updatedDto = new ProductRequestDto(
                 "iPhone 17 Pro",
                 "Apple phone upgraded",
+                "https://istyle.cz/cdn/shop/files/iphone_pro_oranzovy_1_d13d0b99-ca05-4ab5-9b06-c399fe6315da.jpg?v=1757506545",
                 BigDecimal.valueOf(99999),
                 1L,
                 15

@@ -33,6 +33,7 @@ public class ProductMapper
         return Product.builder()
                 .name(requestDto.getName())
                 .description(requestDto.getDescription())
+                .imageUrl(requestDto.getImageUrl())
                 .unitPrice(requestDto.getPrice())
                 .category(category)
                 .stockQuantity(requestDto.getStockQuantity())
