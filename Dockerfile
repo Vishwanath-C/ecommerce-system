@@ -1,7 +1,7 @@
 # Step 1: Build the application
 FROM gradle:8.5-jdk21 AS builder
 WORKDIR /app
-COPY . .
+COPY backend .
 RUN gradle clean build -x test && ls -R /app/build/libs
 
 # Step 2: Run the application
