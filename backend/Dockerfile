@@ -2,7 +2,7 @@
 FROM gradle:8.5-jdk21 AS builder
 WORKDIR /app
 COPY . .
-RUN gradle clean build -x test && ls -R /app/build/libs
+RUN gradle clean build -x test
 
 # Step 2: Run the application
 FROM eclipse-temurin:21-jdk
