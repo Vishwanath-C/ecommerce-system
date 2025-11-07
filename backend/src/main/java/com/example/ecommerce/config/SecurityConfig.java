@@ -102,6 +102,7 @@ public class SecurityConfig
         var c = new CorsConfiguration();
         c.setAllowedOriginPatterns(List.of("http://localhost:*",
                 "http://127.0.0.1:*"));
+        c.addAllowedOrigin("https://ecommercesys.netlify.app");
         c.setAllowedMethods(List.of("GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"));
         c.setAllowedHeaders(List.of("*"));
         c.setAllowCredentials(true);
