@@ -31,6 +31,9 @@ import javax.crypto.spec.SecretKeySpec;
 import java.util.Base64;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity(prePostEnabled = true)
@@ -40,6 +43,7 @@ public class SecurityConfig
 
     private final UserService userService;
     private final JWTAuthenticationFilter jwtAuthenticationFilter;
+    private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
     @Value("${app.jwtSecret}")
     private String jwtSecret;
@@ -79,11 +83,11 @@ public class SecurityConfig
         return NimbusJwtDecoder.withSecretKey(key).build();
     }
 
-    @PostConstruct
+   @PostConstruct
     public void debugJwtSecret() {
-        System.out.println("JWT secret string: '" + jwtSecret + "'");
-        System.out.println("JWT secret length: " + jwtSecret.length());
-        System.out.println("JWT secret bytes length: " + jwtSecret.getBytes(StandardCharsets.UTF_8).length);
+        logger.info("JWT secret string: '{}'", jwtSecret);
+        logger.info("JWT secret length: {}", jwtSecret.length());
+        logger.info("JWT secret bytes length: {}", jwtSecret.getBytes(StandardCharsets.UTF_8).length);
     }
 
 
