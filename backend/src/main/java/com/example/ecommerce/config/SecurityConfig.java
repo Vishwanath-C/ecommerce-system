@@ -79,6 +79,14 @@ public class SecurityConfig
         return NimbusJwtDecoder.withSecretKey(key).build();
     }
 
+    @PostConstruct
+    public void debugJwtSecret() {
+        System.out.println("JWT secret string: '" + jwtSecret + "'");
+        System.out.println("JWT secret length: " + jwtSecret.length());
+        System.out.println("JWT secret bytes length: " + jwtSecret.getBytes(StandardCharsets.UTF_8).length);
+    }
+
+
 
     @Bean
     AuthenticationProvider authenticationProvider(){
