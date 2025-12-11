@@ -55,6 +55,8 @@ const Login = ({setIsLoggedIn, onAddAfterLogin}) => {
 
             localStorage.setItem("role", decodedJWT.role);
 
+            console.log("Decoded JWT : ", decodedJWT);
+
 
             setIsLoggedIn(true);
             if(productToAdd && onAddAfterLogin){
