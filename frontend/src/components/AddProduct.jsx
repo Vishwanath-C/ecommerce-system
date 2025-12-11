@@ -139,7 +139,7 @@ const AddProduct = () => {
                         multiline={true}
                         rows={4}
                         value={productImageUrl}
-                        onChange={(e) => setProductDescription(e.target.value)}
+                        onChange={(e) => setProductImageUrl(e.target.value)}
                         margin={"normal"}
                         required
                     />
