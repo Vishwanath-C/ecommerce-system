@@ -25,6 +25,8 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import java.nio.charset.StandardCharsets; 
+import jakarta.annotation.PostConstruct;
+
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
