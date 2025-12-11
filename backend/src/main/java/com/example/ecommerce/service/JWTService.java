@@ -72,7 +72,13 @@ public class JWTService
     }
 
     private Key getSignInKey() {
-        byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
-        return Keys.hmacShaKeyFor(keyBytes);
-    }
+    byte[] keyBytes = jwtSecret.getBytes(StandardCharsets.UTF_8);
+    return Keys.hmacShaKeyFor(keyBytes);
+}
+
+
+    // private Key getSignInKey() {
+    //     byte[] keyBytes = Decoders.BASE64.decode(jwtSecret);
+    //     return Keys.hmacShaKeyFor(keyBytes);
+    // }
 }
